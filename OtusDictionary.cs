@@ -7,6 +7,11 @@
         int _counter = 0;
         static int _sizeOfArray = 32;
         OtusDictionary[] arrayOfStrings = new OtusDictionary[_sizeOfArray];
+        public OtusDictionary this[int index]
+        {
+            get => arrayOfStrings[index];
+            set => arrayOfStrings[index] = value;
+        }
 
         /// <summary>
         /// Добавление ключа и элемента.
@@ -45,14 +50,11 @@
         /// </summary>
         public string Get(int key)
         {
-            if (key < _sizeOfArray)
-            {
                 for (int i = 0; i < _sizeOfArray; i++)
                 {
                     if (arrayOfStrings[i].Key == key)
                         return arrayOfStrings[i].Value;
                 }
-            }
             return "Ключ не найден!";
         }
     }
